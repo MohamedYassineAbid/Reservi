@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Reservi Login</title>
+	<link rel="stylesheet"
+		href="./styles/style.css">
+</head>
+
+<body>
+	<div class="main">
+		
+		<img src="./img/reservi_logo.png" alt="">
+		<form action="login.php" method="POST">
+			<label for="first">
+				Username:
+			</label>
+			<input type="text"
+				id="first"
+				name="first"
+				placeholder="Enter your Username" required>
+
+			
+            <label for="psw">Password</label>
+            <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter your Password" required>
+          
+
+			<div class="wrap">
+				<button type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+		<p>Not registered? 
+			<a href="registration.php"
+			style="text-decoration: none;">
+				Create an account
+			</a>
+		</p>
+	</div>
+</body>
+
+</html>

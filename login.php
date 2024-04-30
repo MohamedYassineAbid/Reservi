@@ -1,49 +1,22 @@
-<!DOCTYPE html>
-<html>
+<?php
+$con =mysqli_connect("localhost","root","");
+$db=mysqli_select_db($con,"login");
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+   
+    // username and password sent from form 
+    $myusername = mysqli_real_escape_string($con,$_POST['username']);
+    $mypassword = mysqli_real_escape_string($con,$_POST['password']); 
 
-<head>
-	<title>Reservi Login</title>
-	<link rel="stylesheet"
-		href="./styles/style.css">
-    <script lang="javascript">
-        function solve()
-        {
-            
-        }
-    </script>
-</head>
+    $sql = "SELECT * FROM accounts WHERE username = '$myusername' and passcode = '$mypassword'";
 
-<body>
-	<div class="main">
-		<h1>Reservi.</h1>
-		<form action="">
-			<label for="first">
-				Username:
-			</label>
-			<input type="text"
-				id="first"
-				name="first"
-				placeholder="Enter your Username" required>
+    $result = mysqli_query($con,$sql);      
+    $row = mysqli_num_rows($result);      
+    $count = mysqli_num_rows($result);
 
-			
-            <label for="psw">Password</label>
-            <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter your Password" required>
-          
-
-			<div class="wrap">
-				<button type="submit"
-						onclick="solve()">
-					Submit
-				</button>
-			</div>
-		</form>
-		<p>Not registered? 
-			<a href="#"
-			style="text-decoration: none;">
-				Create an account
-			</a>
-		</p>
-	</div>
-</body>
-
-</html>
+    if($count == 1) {
+           echo "hello";
+    } else {
+       $error = "Your Login Name or Password is invalid";
+    }
+ }
+?>
