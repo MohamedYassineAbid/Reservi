@@ -8,8 +8,8 @@
 </head>
 <?php
 // Establish database connection
-$con = mysqli_connect("localhost", "root", "", "login");
-$error_msg = '';
+$con = mysqli_connect("localhost", "root", "", "reservidb");
+
 // Check connection
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
 }
     // Retrieve username and password from POST data
     $myusername = isset($_POST['first']) ? $_POST['first'] : '';
-    $mypassword = isset($_POST['psw']) ? $_POST['psw'] : 'no passs';
+    $mypassword = isset($_POST['psw']) ? $_POST['psw'] : '';
   /*  echo "Username: $myusername<br>";
     echo "Password: $mypassword<br>";*/
     $sql = "SELECT * FROM accounts WHERE username = '$myusername' AND Passw = '$mypassword'";
@@ -32,13 +32,16 @@ if (mysqli_connect_errno()) {
 
     // Check if there is a matching user
     echo "Number of matching rows: $count<br>";
-*/
+	$error_msg = '';
+*/$test=false;
+$error_ms = '';
     if ($count == 1) {
         // User is authenticated
         header("Location: home.html");
     } else {
         // Invalid username or password
-        $error_msg  = "<b>Your Login Name or Password is invalid</b>";
+		$test=true;
+        $error_ms  = "<b>Your Login Name or Password is invalid</b>";
         /*echo "<br>Debugging Info: Provided username: $myusername, Provided password: $mypassword";*/
     }
 
@@ -65,12 +68,12 @@ mysqli_close($con);
 					Submit
 				</button>
 			</div>
-			<div id="error_msg" name="error_msg">
-               <?php echo "$error_msg" ;?>
-            </div>
+			<!--<div id="error_ms" name="error_ms">
+               <?php  echo "$error_ms" ;?>
+            </div>-->
 		</form>
 		<p>Not registered?
-			<a href="registration.html" style="text-decoration: none;">
+			<a href="registration.php" style="text-decoration: none;">
 				Create an account
 			</a>
 		</p>
