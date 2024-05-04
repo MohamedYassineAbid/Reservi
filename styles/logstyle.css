@@ -5,19 +5,25 @@ body {
 	font-family: sans-serif;
 	line-height: 1.5;
 	min-height: 100vh;
-	background: #f3f3f3;
+	/*background: #f3f3f3;*/
 	flex-direction: column;
 	margin: 0;
 }
-
+body
+{
+	background-image: url('../img/bg.jpg');
+	background-size: cover;
+}
 .main {
-	background-color: #fff;
+	/*background-color: #fff;*/
 	border-radius: 15px;
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 	padding: 10px 20px;
 	transition: transform 0.2s;
 	width: 500px;
-	text-align: center;
+	text-align: center;	
+	background-image: url('../img/bg.jpg');
+
 }
 
 h1 {

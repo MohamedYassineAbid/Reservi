@@ -4,9 +4,10 @@
 <head>
 
 	<title>Reservi Login</title>
-	<link rel="stylesheet" href="./styles/style.css">
+	<link rel="stylesheet" href="./styles/logstyle.css">
 </head>
 <?php
+		session_start();
 // Establish database connection
 $con = mysqli_connect("localhost", "root", "", "reservidb");
 
@@ -15,41 +16,30 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
     exit();
 }
-    // Retrieve username and password from POST data
     $myusername = isset($_POST['first']) ? $_POST['first'] : '';
     $mypassword = isset($_POST['psw']) ? $_POST['psw'] : '';
-  /*  echo "Username: $myusername<br>";
-    echo "Password: $mypassword<br>";*/
+  
     $sql = "SELECT * FROM accounts WHERE username = '$myusername' AND Passw = '$mypassword'";
     $result = mysqli_query($con, $sql);
 
 
-    // Check if there is a matching user
     $count = mysqli_num_rows($result);
-/*
-    // Print out the SQL query for debugging purposes
-    echo "SQL Query: $sql<br>";
 
-    // Check if there is a matching user
-    echo "Number of matching rows: $count<br>";
-	$error_msg = '';
-*/$test=false;
+$test=false;
 $error_ms = '';
     if ($count == 1) {
-        // User is authenticated
-        header("Location: home.html");
+		$_SESSION['first'] = $myusername;
+        header("Location: home1.php");
     } else {
-        // Invalid username or password
 		$test=true;
         $error_ms  = "<b>Your Login Name or Password is invalid</b>";
-        /*echo "<br>Debugging Info: Provided username: $myusername, Provided password: $mypassword";*/
+       
     }
 
-// Close database connection
 mysqli_close($con);
 ?>
 
-<body>
+<body >
 	<div class="main">
 
 		<img src="./img/reservi_logo.png" alt="">

@@ -5,7 +5,7 @@
 	
 	<title>Reservi Registration</title>
 	<link rel="stylesheet"
-		href="./styles/style.css">
+		href="./styles/logstyle.css">
     <script lang="javascript">
         function solve()
         {
@@ -18,7 +18,7 @@ $error_msg = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Establish database connection
-    $con = mysqli_connect("localhost", "root", "", "login");
+    $con = mysqli_connect("localhost", "root", "", "reservidb");
 
     // Check connection
     if (mysqli_connect_errno()) {
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($con, $sql); 
 
         if ($result) {
-            header("Location: home.html");
+            header("Location: login.php");
         }
         // Close database connection
         mysqli_close($con);

@@ -1,0 +1,14 @@
+.aboutTitle{
+    width: fit-content;
+    height: fit-content;
+    margin: 30px auto;
+    margin-top: 0;
+    font-size: 70px;
+    font-weight: bold;
+}
+.aboutMain{
+    margin: 10px auto;
+    width: fit-content;
+    font-size: 20px;
+    padding: 0 40px; 
+}
