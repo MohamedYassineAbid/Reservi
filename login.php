@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="./styles/logstyle.css">
 </head>
 <?php
+$is_invalid =false;
 		session_start();
 // Establish database connection
 $con = mysqli_connect("localhost", "root", "", "reservidb");
@@ -25,16 +26,16 @@ if (mysqli_connect_errno()) {
 
     $count = mysqli_num_rows($result);
 
-$test=false;
+$test=true;
 $error_ms = '';
     if ($count == 1) {
 		$_SESSION['first'] = $myusername;
-        header("Location: home1.php");
+        header("Location: home.php");
     } else {
-		$test=true;
         $error_ms  = "<b>Your Login Name or Password is invalid</b>";
        
     }
+	
 
 mysqli_close($con);
 ?>
@@ -53,14 +54,14 @@ mysqli_close($con);
 			<input type="password" id="psw" name="psw"
 				title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
 				placeholder="Enter your Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"required>
-			<div class="wrap">
+				
+				<div class="wrap">
 				<button type="submit">
 					Submit
 				</button>
+				
 			</div>
-			<!--<div id="error_ms" name="error_ms">
-               <?php  echo "$error_ms" ;?>
-            </div>-->
+			<p><a href="home.php"><B><I><H3>HOME</H3></I></B></a></p>
 		</form>
 		<p>Not registered?
 			<a href="registration.php" style="text-decoration: none;">
