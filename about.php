@@ -42,9 +42,9 @@
             About
         </div>
         <div class="aboutMain">
-            Welcome to <b>Reservi</b>, where RSVPing for real-world events is made easy. Created by Omar Bouattour and
+            Welcome to <b>Reservi</b>, where RSVPing for real-world events is made easy. <br><br> Created by Omar Bouattour and
             Mohamed Yassine Abid, our platform simplifies event registration, from conferences to social gatherings.
-            Join us and make attending events effortless!
+            <br><br>Join us and make attending events effortless!
         </div>
     </div>
 </body>

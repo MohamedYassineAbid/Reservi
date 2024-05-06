@@ -42,7 +42,7 @@
             <b>Tel.</b> +216 22333444<br>
             Reservi@gmail.com<br>
             <b>LinkedIn.</b> Reservi Foundation<br>
-            <b>Location.</b> Rte manzel chaker Sfax
+            <b>Location.</b> Rte manzel Teniour Sfax
 
         </div>
     </div>

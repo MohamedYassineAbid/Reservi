@@ -1,8 +1,3 @@
-body{
-    background-image: url('../img/bg.jpg');
-    background-size: cover;
-    width: 100%;
-}
 
 .createButtonText{
     text-decoration: none;
@@ -33,7 +28,12 @@ section
     text-decoration: none;
     border: none;
     border-radius: 25px;
-    transition: background-color 0.3s ease;
     cursor: pointer;
     outline: none;
 }
+.crebutton:hover{
+    width: 150px;
+    height: 55px;
+    color: #f33c3c;
+    transition: all linear 0.5s;
+} 

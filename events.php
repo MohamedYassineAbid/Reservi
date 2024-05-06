@@ -19,11 +19,11 @@
                 box.style.height = maxHeight + 'px';
             });
         };
-        function toggleRSVP(buttonId) {
+        function RSVP(buttonId) {
             var button = document.getElementById(buttonId);
             button.classList.toggle('tick');
             if (button.classList.contains('tick')) {
-                button.textContent = '✓ RSVP';
+                button.textContent = 'RSVP';
 
             } else {
                 button.textContent = 'RSVP';
@@ -36,7 +36,7 @@
     if(isset($_SESSION['first'])){
         $username = $_SESSION['first'];
     }
-    ?>
+?>
 
 
 <body>
@@ -83,10 +83,10 @@
                     echo "<span>" . $row['DateEV'] . " / " . $row['location'] . "</span>";
                     echo "<a href='#' class='blog-title'>" . $row['Name'] . "</a>";
                     echo "<p>" . $row['description'] . "</p>";
-                    echo "<a href='#'>Read More!</a>";
+                    echo "<a href='" . $row['link'] . "'>" . "Read More!" . "</a>";
                     if (isset($_SESSION['first'])) {
                         $button_id = 'rsvp-button' . $counter;
-                        echo " <div class='rsvp'><p id='$button_id' onclick='toggleRSVP(\"$button_id\")' class='rsvp-button'>RSVP</p></div>";
+                        echo " <div class='rsvp'><p id='$button_id' onclick='RSVP(\"$button_id\")' class='rsvp-button'>RSVP</p></div>";
                         $counter++;
 
                     }

@@ -21,7 +21,7 @@ if (isset($_POST['event'], $_POST['des'], $_POST['loc'], $_POST['dat'])) {
     $des = $_POST['des'];
     $loc = $_POST['loc'];
     $dat = $_POST['dat'];
-
+    $link = $_POST['link'];
     $file_name = $_FILES['poster']['name'];
     $file_tmp = $_FILES['poster']['tmp_name'];
     $file_size = $_FILES['poster']['size'];
@@ -34,7 +34,7 @@ if (isset($_POST['event'], $_POST['des'], $_POST['loc'], $_POST['dat'])) {
         $file_path = 'poster_images/' . $file_name;
         $absolute_path = $_SERVER['DOCUMENT_ROOT'] . '/project/ReserviFinal/' . $file_path;
             if(move_uploaded_file($file_tmp, $file_path)) {
-            $sql = "INSERT INTO `events`(`name`,`dateEV` ,`location`, `description`, `poster`) VALUES ('$event','$dat','$loc','$des','$file_path')";
+            $sql = "INSERT INTO `events`(`name`,`dateEV` ,`location`, `description`, `poster`,`link`) VALUES ('$event','$dat','$loc','$des','$file_path','$link')";
             if (mysqli_query($conn, $sql)) {
                 header("Location: sucess.php");
             } else {
@@ -64,7 +64,7 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Event Creation</title>
     <link rel="stylesheet" href="./styles/createEvent.css">
 </head>
 
@@ -86,6 +86,9 @@ mysqli_close($conn);
 
             <label for="dat">Event Date</label>
             <input type="date" id="dat" name="dat" required>
+            
+            <label for="link">Event Link</label>
+            <input type="text" id="link" name="link" placeholder="Enter The Event Link" required>
             <label for="poster">Event Image Poster</label>
             <input type="file" id="poster" name="poster" accept=".jpg, .jpeg, .png" required>
             <div class="wrap">

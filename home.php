@@ -31,21 +31,24 @@
          if(isset($username)) : ?>
         <ul class="login">
             <li><a class="navButtons" href="#"><?php echo"$username" ?></a></li>
-            <li><a class="navButtons" href="logout.php">Logout</a></li></ul>
+            <li><a class="navButtons" href="logout.php">Logout</a></li>
+        </ul>
         <?php else : ?>
-            <ul class="login">
+        <ul class="login">
             <li><a class="navButtons" href="login.php">Login</a></li>
-            <li><a class="navButtons" href="registration.php">SignUp</a></li></ul>
+            <li><a class="navButtons" href="registration.php">SignUp</a></li>
+        </ul>
         <?php endif; ?>
     </nav>
         <div class="main">
             <table class="createEvent">
                 <tr><td></td></tr>
-                <tr><td><h2>Create your event</h2></td>        
+                <tr><td><h2>Create any event in minutes.</h2></td></tr>  
+                <tr><td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An automated event creation and rsvp</td></tr>       
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>
+                <tr><td>
                     <button class="crebutton"><a href="createEvent.php" class="createButtonText">CREATE</a></button>
-                </td></tr> 
+                </td></tr>
             </table>
         </div>
 
