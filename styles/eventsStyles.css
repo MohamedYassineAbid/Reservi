@@ -88,7 +88,7 @@
     color: #f33c3c;
     transition: all ease 0.5s;
 } 
- .rsvp .rsvp-button  {
+ .rsvp .rsvp-button button:active    {
     size: 20px;
     position: absolute;
     bottom: 10px;

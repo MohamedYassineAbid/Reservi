@@ -35,8 +35,22 @@ if (isset($_POST['event'], $_POST['des'], $_POST['loc'], $_POST['dat'])) {
         $absolute_path = $_SERVER['DOCUMENT_ROOT'] . '/project/ReserviFinal/' . $file_path;
             if(move_uploaded_file($file_tmp, $file_path)) {
             $sql = "INSERT INTO `events`(`name`,`dateEV` ,`location`, `description`, `poster`,`link`) VALUES ('$event','$dat','$loc','$des','$file_path','$link')";
-            if (mysqli_query($conn, $sql)) {
+            
+            if (mysqli_query($conn, $sql) ) {
+            $u_uid="select * from accounts where username='".$_SESSION['first']."'";
+            $ev_eid="select * from events where Name='$event'";
+            $uu=mysqli_query($conn,$u_uid);
+            $evv_id=mysqli_query($conn,$ev_eid);
+            $idu=mysqli_fetch_assoc($uu);
+            $ide=mysqli_fetch_assoc($evv_id);
+            $u_id=$idu['u_id'];
+            $ev_id=$ide['ev_id'];            
+            $sqlll="INSERT INTO `user_event`(`user_id`, `event_id`) VALUES ('$u_id','$ev_id')";
+                if(mysqli_query($conn,$sqlll)){
                 header("Location: sucess.php");
+                }else{
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }

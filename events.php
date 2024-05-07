@@ -28,6 +28,8 @@
             } else {
                 button.textContent = 'RSVP';
             }
+
+            
         }
     </script>
 </head>
@@ -86,7 +88,8 @@
                     echo "<a href='" . $row['link'] . "'>" . "Read More!" . "</a>";
                     if (isset($_SESSION['first'])) {
                         $button_id = 'rsvp-button' . $counter;
-                        echo " <div class='rsvp'><p id='$button_id' onclick='RSVP(\"$button_id\")' class='rsvp-button'>RSVP</p></div>";
+                        
+                        echo " <div class='rsvp'><button value ='hello' id='$button_id' onclick='RSVP(\"$button_id\")' class='rsvp-button'>RSVP</button></div>";
                         $counter++;
 
                     }
